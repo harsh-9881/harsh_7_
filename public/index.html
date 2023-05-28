@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicon -->
+	<!-- <link rel="icon" href="/resources/images/favicon.ico"> -->
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="/resources/css/tailwind.css">
+	<link rel="stylesheet" href="/resources/css/styles.css">
+
+	<title>Filter me</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+
+		th, td {
+			padding: 15px;
+		}
+	</style>
+</head>
+<body class="flex flex-col w-full h-full sm:h-screen">
+	<header class="h-[100px] sm:h-[150px]">
+		<div class="h-full flex items-center w-full bg-[#1b1b1b] px-2 sm:px-8 text-white">
+			<h1 class="text-[36px] font-bold">Filter Me</h1>
+		</div>
+	</header>
+
+
+	<div class="w-full p-4">
+
+		<div class="flex w-fit justify-center flex-col items-center justify-center bg-[#1b1b1b] mb-4 rounded-[4px] relative transform hover:scale-[1.01] cursor-pointer hover:shadow-2xl hover:border duration-200 px-6 py-4">
+			<input id="main-database-file" type="file" accept=".xlsx" class="absolute opacity-0 cursor-pointer">
+			<p id="main-database-file-name" class="text-base text-white">Upload students' data</p>
+		</div>
+
+		<!-- // marker: unhide after data upload? -->
+		<div class="flex items-center justify-center my-8 space-x-2">
+			<div class="my-4 whitespace-nowrap">
+				<p class="text-base">Enter incoming company's CTC(in LPA):</p>
+				<input type="number" name="" id="incoming-company-ctc" class="w-full mt-2 text-xl text-center border-b border-black focus:outline-none">
+			</div>
+			<button id="filter-me-btn" class="py-[14px] px-[24px] font-semibold border rounded-[4px] focus:outline-none disbaled:bg-white bg-[#f7971e] text-black border-black duration-300">
+				Filter
+			</button>
+		</div>
+
+		<table id="myTable" class="w-full">
+			<thead>
+				<tr>
+					<th>PRN</th>
+					<th>Name</th>
+					<th>Package 1</th>
+					<th>Package 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- table rows will be added dynamically using JavaScript -->
+			</tbody>
+		</table>
+
+		<table id="filtered-table" class="hidden w-full">
+			<thead>
+				<tr>
+					<th>PRN</th>
+					<th>Name</th>
+					<th>isEligible</th>
+					<th>Reason</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- table rows will be added dynamically using JavaScript -->
+			</tbody>
+		</table>
+	</div>
+
+	  
+	
+
+	<div id="success-popup" class="fixed z-[31] bottom-[4px] left-0 transform -translate-x-full select-none cursor-default duration-200">
+		<span class="flex items-center bg-[#5d9e52] rounded-[4px] shadow-2xl text-white px-[20px] py-[14px]">
+			<svg class="h-[20px] w-[20px] fill-current mr-[8px]" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+				<path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"></path>
+			</svg>
+			<span id="success-popup-txt"></span>
+		</span>
+	</div>
+	<div id="error-popup" class="fixed z-[31] bottom-[4px] left-0 transform -translate-x-full select-none cursor-default duration-200">
+		<span class="flex items-center bg-[#D32F2F] rounded-[4px] shadow-2xl text-white px-[20px] py-[14px]">
+			<svg class="h-[20px] w-[20px] fill-current mr-[8px]" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 20px; margin-inline-end: 8px;">
+				<path d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"></path>
+			</svg>
+			<span id="error-popup-txt"></span>
+		</span>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
