@@ -77,8 +77,18 @@
 			</tbody>
 		</table>
 	</div>
+<!-- 
+	This code is checking the eligibility of a student for a job based on certain conditions. Here's a breakdown:
 
-	  
+	If the incomingCompanyCTC (Compensation package from the company) is greater than 30, the student is considered ineligible for the job. The student's eligibility flag (student.isEligible) is set to false, and the eligibility reason is set to "ELIGIBLE. Super Dream company."
+	
+	If the firstPackage and secondPackage variables (representing offers from two different companies) are both true, the student is also considered ineligible. Again, the eligibility flag is set to false, and the eligibility reason is set to "Ineligible. 2 offers completed."
+	
+	If the firstPackage is greater than 7, indicating that the first company's offer is considered a dream company, the student is considered ineligible. The eligibility flag is set to false, and the eligibility reason is set to "Ineligible. First company is dream company."
+	
+	If none of the above conditions are met, the student is considered eligible for the job. The eligibility flag is set to true, and the eligibility reason is set to "ELIGIBLE."
+	
+	In summary, this code evaluates the student's eligibility based on the conditions mentioned and assigns appropriate values to the student's eligibility flag and eligibility reason variables. -->
 	
 
 	<div id="success-popup" class="fixed z-[31] bottom-[4px] left-0 transform -translate-x-full select-none cursor-default duration-200">
